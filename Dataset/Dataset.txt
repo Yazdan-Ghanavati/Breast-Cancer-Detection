@@ -1,1 +1,4 @@
 These are raw breast images used as the input for cancer detection.
+
+C001-C100: CANCER DATA
+N001-N100: NORMAL DATA
