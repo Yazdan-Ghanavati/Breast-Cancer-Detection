@@ -1,0 +1,1 @@
+These are raw breast images used as the input for cancer detection.
