@@ -82,7 +82,7 @@ Since each image pixel is a temprature, we can convert final images into signals
 * Laplacian filter
 
 ### Histogram conversion
-This is the first pre-processing step in this project.
+This is the first pre-processing step in this project. This is a common method for high frequency noise reduction in image processing.
 
 Images are displayed as a set of pixels which could have a value  between 0 and 255. If the value is close to 255 means it is representing white and vice versa. After emmiting radiation, usually there are two picks which creates noise in the image. So what we want to do is to spread these values in order to have a normalize pixel value in rhe full range.
 
@@ -90,6 +90,28 @@ Usually, in pixels with lower value, tissue is experiencing higher level of meta
 
 
 
+### Median filter
+This is a smoothing filter which can remove outliers frequencies. usually by selecting a mask (3*3, 5*5, etc) we can sharpen the output. Exact value for the mask is normally set after multiple tries.
+
+
+### Laplacian filter
+This filter uses second derivative operator. Which means it is kind of a high pass filter that does not allow low frequency to be passed.
+
+In this kind of filters(high pass) edges are the target. They sharpen the edges and as we increase the level of operator(in this example we use 2) the edges become more visible.
+
+Now we have two parameters to set in this filter:
+* Sigma
+* Alpha
+ 
+
+#### Sigma
+It will affect edge range and as we increase its value, it will become easier to see the edges
+
+#### Alpha
+This parameter will affect The degree of smoothing of details. So as we increase its value, it will become harder to see the edges.
+
+#### Image frequency
+Changes in brightness intensity per unit of location are called image frequency.
 
 
 
