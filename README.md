@@ -1,6 +1,5 @@
 # Breast Cancer Detection
-A MATLAB Project based on Image-processing techniques(Thermogram image processing) for breast cancer detection. 
-
+A MATLAB project based on image-processing techniques (thermogram image processing) for breast cancer detection.
 
 ## Steps
 * Data Collection
