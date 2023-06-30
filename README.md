@@ -155,7 +155,20 @@ Note: You can usually increase the accuracy by increasing the number of neurins 
 
 
 
+## Step 5: Evaluation
+Finally after testing the n.n. on the test set, we can calculate the confusion matrix and based upon that, statistical analysis will be done.
 
+confusion Matrix = TP, TN, FP, FN
+
+Sensitivity = TP/(TP+FN)
+
+Specifity = TN/(TN+FP)
+
+Accuracy = (TP + TN)/(TP+TN+FP+FN)
+
+Precision = TP/(TP+FP)
+
+NPV = TN/(TN+FN)
 
 
 
