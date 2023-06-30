@@ -75,5 +75,49 @@ This method includes 2 types of contact and non-contact, the first type is obsol
 Since each image pixel is a temprature, we can convert final images into signals and apply statistical analysis.
 
 
+## Step 2: Pre-Processing
+
+* Histogram conversion
+* Median filter
+* Laplacian filter
+
+### Histogram conversion
+This is the first pre-processing step in this project.
+
+Images are displayed as a set of pixels which could have a value  between 0 and 255. If the value is close to 255 means it is representing white and vice versa. After emmiting radiation, usually there are two picks which creates noise in the image. So what we want to do is to spread these values in order to have a normalize pixel value in rhe full range.
+
+Usually, in pixels with lower value, tissue is experiencing higher level of metabolism.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
