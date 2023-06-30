@@ -6,7 +6,7 @@ A MATLAB Project based on Image-processing techniques(Thermogram image processin
 * Data Collection
 * Pre-Processing
 * Feature Extraction
-* Classification and Diagnose
+* Design a N.N. for Classification and Diagnose
 
 
 ## Step 1: Database
@@ -124,12 +124,20 @@ Changes in brightness intensity per unit of location are called image frequency.
 
 Note: in a cancerious tissue, skewness and kurtosis will have a greater value. Temprature is stable in a healthy tissue, therefore, kurtosis will be lower.
 
+## Step 4: Design a N.N. for Classification and Diagnose
+A neural network is consisted by 3 steps:
+* Training
+* Validation
+* Test
 
+### Training
+In this section, the goal is to find the weigth of each input data. Therefore, we will use the data that we are aware of their labels. usually 70-80 percent of data is used in this section.
 
+### Validation
+After training and finding the wight parameter, we will use it in validation section in order to check the accuracy of the trained model and in order to prevent our model to overfit on the input data. Usually 5% of our total dataset is enough for this section.
 
-
-
-
+### Test
+The network that is forgiven must be available and able to process new data correctly. As a result of that, the taining data cannot be used in test. usually 15-20 percent of our whole dataset is enough for this section. 
 
 
 
