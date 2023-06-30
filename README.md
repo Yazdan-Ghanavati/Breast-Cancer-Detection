@@ -113,7 +113,16 @@ This parameter will affect The degree of smoothing of details. So as we increase
 #### Image frequency
 Changes in brightness intensity per unit of location are called image frequency.
 
+## Step 3: Feature Extraction
+* Maximum value
+* Minimum value
+* Mean
+* Standard deviasion
+* Entropy
+* Kurtosis
+* Sweness
 
+Note: in a cancerious tissue, skewness and kurtosis will have a greater value. Temprature is stable in a healthy tissue, therefore, kurtosis will be lower.
 
 
 
