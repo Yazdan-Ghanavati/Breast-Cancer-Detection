@@ -7,6 +7,8 @@ A MATLAB Project based on Image-processing techniques(Thermogram image processin
 * Pre-Processing
 * Feature Extraction
 * Design a N.N. for Classification and Diagnose
+* Evaluation
+
 
 
 ## Step 1: Database
@@ -140,8 +142,15 @@ After training and finding the wight parameter, we will use it in validation sec
 The network that is forgiven must be available and able to process new data correctly. As a result of that, the taining data cannot be used in test. usually 15-20 percent of our whole dataset is enough for this section. 
 
 
+### Layers
+Layers are divided in 3 parts. First one is the input layer which are as many as the features(7 in this case). In the output layer we will have 2 neurons which are based on the labels(2 in this case). But how many neurons in hidden layer should we choose?
 
+#### Neurons in hidden layer
+The number of neurons in this layer is usually calculated based on the below equation:
 
+Number of neurons in hidden layer = sqrt(number of features + number of labels) ---> sqrt(7+2) = 3
+
+Note: You can usually increase the accuracy by increasing the number of neurins in the hidden layer, however, you should be cautious about overfitting.
 
 
 
