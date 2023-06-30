@@ -1,7 +1,7 @@
-% yazdan ghanavati
+% Yazdan Ghanavati
 % y.ghanavati79@gmail.com
 % breast cancer detection using Thermogram image processing
-% 6/29/2023
+% 6/20/2022
 
 clc % clear command window
 clear all % clear variables
@@ -36,7 +36,7 @@ for i=1:length(Files) % All Images Will Batchload Here
     f7=skewness(im5(:)); % Statistic Feature
     
     Feature(i,:)=[f1,f2,f3,f4,f5,f6,f7]; % Putting All The Features in Each Image Individualy
-
+    Feature_new(i,:) = extractLBPFeatures(im5);
 end
 
 figure()
@@ -66,6 +66,56 @@ figure()
 imshow(im3); % After Applying Median Filter 
 title('After Applying MED Filter');
 
-figure()
-imshow(im4); % After Applying Laplacian Filter 
-title('After Applying LapLacian Filter');
+% figure()
+% imshow(im4); % After Applying Laplacian Filter 
+% title('After Applying LapLacian Filter');
+
+
+input = Feature_new; % input is the features that we want to get
+output = [ones(100,1)
+    zeros(100,1)]; % output is the LABEL of dataset's input
+
+% Nervous System Code
+
+x = input';
+t = output';
+
+% Choose a Training Function
+% For a list of all training functions type: help nntrain
+% 'trainlm' is usually fastest.
+% 'trainbr' takes longer but may be better for challenging problems.
+% 'trainscg' uses less memory. Suitable in low memory situations.
+trainFcn = 'trainscg';  % Scaled conjugate gradient backpropagation.
+
+% Create a Pattern Recognition Network
+hiddenLayerSize = 3;
+net = patternnet(hiddenLayerSize, trainFcn);
+
+% Setup Division of Data for Training, Validation, Testing
+net.divideParam.trainRatio = 80/100;
+net.divideParam.valRatio = 15/100;
+net.divideParam.testRatio = 5/100;
+
+% Train the Network
+[net,tr] = train(net,x,t);
+
+% Test the Network
+y = net(x);
+e = gsubtract(t,y);
+performance = perform(net,t,y)
+tind = vec2ind(t);
+yind = vec2ind(y);
+percentErrors = sum(tind ~= yind)/numel(tind);
+
+% View the Network
+view(net)
+
+% Plots
+% Uncomment these lines to enable various plots.
+%figure, plotperform(tr)
+%figure, plottrainstate(tr)
+%figure, ploterrhist(e)
+figure, plotconfusion(t,y) % to plot the Confusion matrix for result in paper
+%figure, plotroc(t,y)
+
+
